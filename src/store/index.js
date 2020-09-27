@@ -35,12 +35,12 @@ export default function (/* { ssrContext } */) {
    get into our production build (and it shouldn't).
  */
 
-  // if (process.env.DEV && module.hot) {
-  //   module.hot.accept(['./showcase'], () => {
-  //     const newShowcase = require('./showcase').default
-  //     Store.hotUpdate({ modules: { showcase: newShowcase } })
-  //   })
-  // }
+  if (process.env.DEV && module.hot) {
+    module.hot.accept(['./persona'], () => {
+      const newPersona = require('./persona').default
+      Store.hotUpdate({ modules: { persona: newPersona } })
+    })
+  }
 
   return Store
 }
